@@ -14,19 +14,19 @@ import (
 // HealthCheckResponse represents the structured health check response format
 // MANDATORY format from Story 1.4 requirements
 type HealthCheckResponse struct {
-	Status         string                    `json:"status"`         // healthy|unhealthy
-	Timestamp      int64                     `json:"timestamp"`      // Unix timestamp
-	Service        string                    `json:"service"`        // goUserAPI
-	Version        string                    `json:"version"`        // 1.0.0
-	UptimeSeconds  int64                     `json:"uptime_seconds"` // Uptime in seconds
-	Checks         map[string]HealthCheck    `json:"checks"`
+	Status        string                 `json:"status"`         // healthy|unhealthy
+	Timestamp     int64                  `json:"timestamp"`      // Unix timestamp
+	Service       string                 `json:"service"`        // goUserAPI
+	Version       string                 `json:"version"`        // 1.0.0
+	UptimeSeconds int64                  `json:"uptime_seconds"` // Uptime in seconds
+	Checks        map[string]HealthCheck `json:"checks"`
 }
 
 // HealthCheck represents individual health check result with timing
 type HealthCheck struct {
-	Status         string `json:"status"`         // healthy|unhealthy
+	Status         string `json:"status"`           // healthy|unhealthy
 	ResponseTimeMs int64  `json:"response_time_ms"` // Response time in ms
-	Error          string `json:"error,omitempty"` // Only present if unhealthy
+	Error          string `json:"error,omitempty"`  // Only present if unhealthy
 }
 
 // HealthChecker interface for health check components
@@ -37,7 +37,7 @@ type HealthChecker interface {
 
 // HealthHandler provides health check functionality with performance metrics
 type HealthHandler struct {
-	checkers []HealthChecker
+	checkers  []HealthChecker
 	startTime time.Time
 	version   string
 	service   string
@@ -48,7 +48,7 @@ type HealthHandler struct {
 // NewHealthHandler creates a new health handler
 func NewHealthHandler(service, version string, logger *logging.Logger) *HealthHandler {
 	return &HealthHandler{
-		checkers: make([]HealthChecker, 0),
+		checkers:  make([]HealthChecker, 0),
 		startTime: time.Now(),
 		version:   version,
 		service:   service,

@@ -14,8 +14,8 @@ import (
 	"github.com/chybatronik/goUserAPI/internal/logging"
 	"github.com/chybatronik/goUserAPI/internal/models"
 	"github.com/chybatronik/goUserAPI/internal/types"
-	"github.com/jackc/pgx/v5/pgxpool"
 	pkgerrors "github.com/chybatronik/goUserAPI/pkg/errors"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 // MockDatabaseService implements DatabaseService for testing

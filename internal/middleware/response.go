@@ -9,7 +9,7 @@ import (
 type ResponseWriter struct {
 	http.ResponseWriter
 	statusCode int32
-	written     int32
+	written    int32
 }
 
 func NewResponseWriter(w http.ResponseWriter) *ResponseWriter {

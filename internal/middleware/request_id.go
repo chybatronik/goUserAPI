@@ -49,7 +49,6 @@ func SetRequestID(ctx context.Context, reqID string) context.Context {
 	return context.WithValue(ctx, RequestIDContextKey, reqID)
 }
 
-
 // RequestIDMiddleware ensures request ID is present and adds it to context
 func RequestIDMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

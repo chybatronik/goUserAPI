@@ -68,8 +68,8 @@ func ValidateMultipleFields(fields map[string]string, maxLen int) []error {
 
 // ValidateInputBatch validates a batch of inputs efficiently
 type InputField struct {
-	Name  string
-	Value string
+	Name   string
+	Value  string
 	MaxLen int
 }
 

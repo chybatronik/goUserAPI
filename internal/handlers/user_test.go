@@ -54,7 +54,6 @@ func (m *MockDBService) GetReports(ctx context.Context, pool *pgxpool.Pool, para
 	return []models.User{}, 0, nil
 }
 
-
 func TestCreateUserSuccess(t *testing.T) {
 	// Setup
 	logger := logging.NewStructuredLogger("info", "goUserAPI", "test")
@@ -445,10 +444,10 @@ func TestGetUsersDefaultValues(t *testing.T) {
 
 // MockGetUsersDBService mocks the database service for GetUsers testing
 type MockGetUsersDBService struct {
-	shouldFail      bool
-	lastParams      types.GetUsersParams
-	mockUsers       []models.User
-	mockTotalCount  int64
+	shouldFail     bool
+	lastParams     types.GetUsersParams
+	mockUsers      []models.User
+	mockTotalCount int64
 }
 
 func (m *MockGetUsersDBService) CreateUser(ctx context.Context, pool *pgxpool.Pool, user *models.User) (*models.User, error) {
@@ -516,7 +515,7 @@ func BenchmarkGetUsers(b *testing.B) {
 	logger := logging.NewStructuredLogger("info", "goUserAPI", "test")
 	mockDB := &MockGetUsersDBService{
 		mockUsers:      generateMockUsers(1000), // 1K users for realistic testing
-		mockTotalCount: 100000,                   // 100K total users as per AC #5
+		mockTotalCount: 100000,                  // 100K total users as per AC #5
 	}
 	handler := NewUserHandler(logger, nil, mockDB)
 
@@ -578,9 +577,9 @@ func BenchmarkGetUsersWithSorting(b *testing.B) {
 	handler := NewUserHandler(logger, nil, mockDB)
 
 	sortTestCases := []struct {
-		name    string
-		sortBy  string
-		order   string
+		name   string
+		sortBy string
+		order  string
 	}{
 		{"sort_by_recording_date_desc", "recording_date", "desc"},
 		{"sort_by_recording_date_asc", "recording_date", "asc"},
@@ -618,7 +617,7 @@ func TestPerformance_NFRP1Compliance(t *testing.T) {
 	const (
 		nfrP1Target     = 200 * time.Millisecond // NFR-P1 requirement
 		nfrP1Acceptable = 300 * time.Millisecond // Acceptable limit
-		concurrentOps   = 100                     // Concurrent operations test
+		concurrentOps   = 100                    // Concurrent operations test
 	)
 
 	logger := logging.NewStructuredLogger("info", "goUserAPI", "test")
@@ -751,7 +750,7 @@ func generateMockUsers(count int) []models.User {
 			ID:            fmt.Sprintf("550e8400-e29b-41d4-a716-%012d", i),
 			FirstName:     firstNames[i%len(firstNames)],
 			LastName:      lastNames[i%len(lastNames)],
-			Age:           18 + (i % 83), // Age range 18-100
+			Age:           18 + (i % 83),          // Age range 18-100
 			RecordingDate: baseTime + int64(i*60), // 1 minute intervals
 		}
 	}

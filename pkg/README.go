@@ -8,10 +8,10 @@
 //
 // Example usage:
 //
-//   import "github.com/chybatronik/goUserAPI/pkg/errors"
+//	import "github.com/chybatronik/goUserAPI/pkg/errors"
 //
-//   userErr := errors.NewUserValidationError("INVALID_FIELD", "Field validation failed")
-//   http.Error(w, userErr.Error(), userErr.GetHTTPStatus())
+//	userErr := errors.NewUserValidationError("INVALID_FIELD", "Field validation failed")
+//	http.Error(w, userErr.Error(), userErr.GetHTTPStatus())
 package pkg
 
 // This file serves as the Go package documentation placeholder.

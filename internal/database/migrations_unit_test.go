@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/chybatronik/goUserAPI/internal/config"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLoadMigrationFiles(t *testing.T) {

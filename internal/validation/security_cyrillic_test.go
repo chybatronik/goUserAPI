@@ -6,10 +6,10 @@ import (
 
 func TestUnicodeSecurity_CyrillicNames(t *testing.T) {
 	tests := []struct {
-		name     string
-		input    string
-		wantErr  bool
-		reason   string
+		name    string
+		input   string
+		wantErr bool
+		reason  string
 	}{
 		// Pure Cyrillic names should be ALLOWED
 		{

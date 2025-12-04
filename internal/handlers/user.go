@@ -17,8 +17,8 @@ import (
 	"github.com/chybatronik/goUserAPI/internal/models"
 	"github.com/chybatronik/goUserAPI/internal/types"
 	"github.com/chybatronik/goUserAPI/internal/validation"
-	"github.com/jackc/pgx/v5/pgxpool"
 	pkgerrors "github.com/chybatronik/goUserAPI/pkg/errors"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 // DatabaseService defines the interface for database operations
@@ -30,9 +30,9 @@ type DatabaseService interface {
 
 // UserHandler handles HTTP requests for user operations
 type UserHandler struct {
-	pool         *pgxpool.Pool
-	logger       *logging.Logger
-	dbService    DatabaseService
+	pool      *pgxpool.Pool
+	logger    *logging.Logger
+	dbService DatabaseService
 }
 
 // NewUserHandler creates a new UserHandler instance
@@ -344,7 +344,7 @@ type GetUsersRequestParams struct {
 
 // GetUsersResponse represents the response format for GetUsers
 type GetUsersResponse struct {
-	Users      []models.User   `json:"users"`
+	Users      []models.User  `json:"users"`
 	Pagination PaginationInfo `json:"pagination"`
 }
 

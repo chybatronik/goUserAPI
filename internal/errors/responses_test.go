@@ -131,9 +131,9 @@ func TestSecureResponseHeaders(t *testing.T) {
 
 	// Check security headers
 	expectedHeaders := map[string]string{
-		"Content-Type": "application/json",
+		"Content-Type":           "application/json",
 		"X-Content-Type-Options": "nosniff",
-		"X-Frame-Options":         "DENY",
+		"X-Frame-Options":        "DENY",
 	}
 
 	for header, expectedValue := range expectedHeaders {

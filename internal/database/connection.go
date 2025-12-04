@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/chybatronik/goUserAPI/internal/config"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 // NewConnectionPool creates a new PostgreSQL connection pool
@@ -34,9 +34,9 @@ func NewConnectionPool(appConfig *config.Config) (*pgxpool.Pool, error) {
 
 	// Performance optimizations for user operations (AC #5)
 	// Health check configuration for proactive connection validation
-	poolConfig.HealthCheckPeriod = 1 * time.Minute  // Check connection health every minute
-	poolConfig.MaxConnLifetime = 30 * time.Minute    // Recycle connections after 30 minutes
-	poolConfig.MaxConnIdleTime = 5 * time.Minute     // Close idle connections after 5 minutes
+	poolConfig.HealthCheckPeriod = 1 * time.Minute // Check connection health every minute
+	poolConfig.MaxConnLifetime = 30 * time.Minute  // Recycle connections after 30 minutes
+	poolConfig.MaxConnIdleTime = 5 * time.Minute   // Close idle connections after 5 minutes
 
 	// Connection acquisition timeout for responsive error handling
 	// Note: AcquireTimeout was removed in pgx v5.5+, using MaxConnIdleTime instead

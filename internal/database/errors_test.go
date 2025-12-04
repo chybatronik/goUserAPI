@@ -30,9 +30,9 @@ func TestMapDatabaseErrorSecure(t *testing.T) {
 		{
 			name: "unique constraint violation",
 			inputErr: &pgconn.PgError{
-				Code:        "23505",
+				Code:           "23505",
 				ConstraintName: "users_email_key",
-				TableName:     "users",
+				TableName:      "users",
 			},
 			expectedCode:   usererrors.ErrCodeValidationFailed,
 			expectedStatus: 400,
@@ -41,9 +41,9 @@ func TestMapDatabaseErrorSecure(t *testing.T) {
 		{
 			name: "foreign key constraint violation",
 			inputErr: &pgconn.PgError{
-				Code:        "23503",
+				Code:           "23503",
 				ConstraintName: "users_role_id_fkey",
-				TableName:     "users",
+				TableName:      "users",
 			},
 			expectedCode:   usererrors.ErrCodeValidationFailed,
 			expectedStatus: 400,
@@ -52,7 +52,7 @@ func TestMapDatabaseErrorSecure(t *testing.T) {
 		{
 			name: "not null constraint violation",
 			inputErr: &pgconn.PgError{
-				Code:        "23502",
+				Code:       "23502",
 				ColumnName: "first_name",
 				TableName:  "users",
 			},
@@ -63,17 +63,17 @@ func TestMapDatabaseErrorSecure(t *testing.T) {
 		{
 			name: "check constraint violation",
 			inputErr: &pgconn.PgError{
-				Code:        "23514",
+				Code:           "23514",
 				ConstraintName: "users_age_check",
-				TableName:     "users",
+				TableName:      "users",
 			},
 			expectedCode:   usererrors.ErrCodeValidationFailed,
 			expectedStatus: 400,
 			expectLog:      true,
 		},
 		{
-			name: "connection error",
-			inputErr: driver.ErrBadConn,
+			name:           "connection error",
+			inputErr:       driver.ErrBadConn,
 			expectedCode:   usererrors.ErrCodeConnectionFailed,
 			expectedStatus: 503,
 			expectLog:      true,
@@ -194,7 +194,7 @@ func TestSecureErrorMapping(t *testing.T) {
 			Code:       "42501",
 			Message:    "permission denied for table users",
 			SchemaName: "public",
-			TableName: "users",
+			TableName:  "users",
 		},
 	}
 

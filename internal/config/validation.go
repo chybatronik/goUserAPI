@@ -161,4 +161,3 @@ func validateApplicationConfig(app *ApplicationConfig) error {
 
 	return nil
 }
-

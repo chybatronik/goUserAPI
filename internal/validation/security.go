@@ -10,9 +10,9 @@ import (
 
 // Security validation errors
 var (
-	ErrInvalidUnicodeSecurity     = fmt.Errorf("ErrInvalidUnicodeSecurity")
-	ErrHomographAttackDetected    = fmt.Errorf("ErrHomographAttackDetected")
-	ErrInvalidUnicodeCategory     = fmt.Errorf("ErrInvalidUnicodeCategory")
+	ErrInvalidUnicodeSecurity  = fmt.Errorf("ErrInvalidUnicodeSecurity")
+	ErrHomographAttackDetected = fmt.Errorf("ErrHomographAttackDetected")
+	ErrInvalidUnicodeCategory  = fmt.Errorf("ErrInvalidUnicodeCategory")
 )
 
 // Blocked Unicode categories for security

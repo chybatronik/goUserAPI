@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/chybatronik/goUserAPI/internal/models"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/chybatronik/goUserAPI/internal/models"
 )
 
 func TestMigrationPerformance(t *testing.T) {
@@ -37,9 +37,9 @@ func TestQueryPerformanceTargets(t *testing.T) {
 
 	// Define performance targets from PRD.md#NFR-P1
 	performanceTargets := map[string]time.Duration{
-		"create_user": 50 * time.Millisecond,  // With indexing
-		"get_users":   100 * time.Millisecond, // With pagination
-		"reports":     200 * time.Millisecond, // Complex filtering
+		"create_user":    50 * time.Millisecond,  // With indexing
+		"get_users":      100 * time.Millisecond, // With pagination
+		"reports":        200 * time.Millisecond, // Complex filtering
 		"max_acceptable": 300 * time.Millisecond, // Upper limit
 	}
 
@@ -176,7 +176,6 @@ func TestUserModelValidation(t *testing.T) {
 		})
 	}
 }
-
 
 // BenchmarkMigrationLoading benchmarks migration file loading performance
 func BenchmarkMigrationLoading(b *testing.B) {

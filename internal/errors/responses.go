@@ -161,11 +161,11 @@ func WriteCustomError(w http.ResponseWriter, r *http.Request, statusCode int, co
 // WriteSecurityError writes a security-related error response
 func WriteSecurityError(w http.ResponseWriter, r *http.Request, securityCode string) {
 	securityMessages := map[string]string{
-		"INVALID_UNICODE":      "Invalid input characters detected",
-		"RATE_LIMIT_EXCEEDED":  "Too many requests",
-		"VALIDATION_ERROR":     "Invalid input provided",
-		"SECURITY_VIOLATION":   "Security validation failed",
-		"BLOCKED_REQUEST":      "Request blocked for security reasons",
+		"INVALID_UNICODE":     "Invalid input characters detected",
+		"RATE_LIMIT_EXCEEDED": "Too many requests",
+		"VALIDATION_ERROR":    "Invalid input provided",
+		"SECURITY_VIOLATION":  "Security validation failed",
+		"BLOCKED_REQUEST":     "Request blocked for security reasons",
 	}
 
 	message := securityMessages[securityCode]

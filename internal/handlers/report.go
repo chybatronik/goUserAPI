@@ -15,15 +15,15 @@ import (
 	"github.com/chybatronik/goUserAPI/internal/models"
 	"github.com/chybatronik/goUserAPI/internal/types"
 	"github.com/chybatronik/goUserAPI/internal/validation"
-	"github.com/jackc/pgx/v5/pgxpool"
 	pkgerrors "github.com/chybatronik/goUserAPI/pkg/errors"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 // ReportHandler handles HTTP requests for report operations
 type ReportHandler struct {
-	pool         *pgxpool.Pool
-	logger       *logging.Logger
-	dbService    DatabaseService
+	pool      *pgxpool.Pool
+	logger    *logging.Logger
+	dbService DatabaseService
 }
 
 // NewReportHandler creates a new ReportHandler instance
@@ -68,9 +68,9 @@ type GetReportsRequestParams struct {
 
 // GetReportsResponse represents the response format for GetReports
 type GetReportsResponse struct {
-	Count      int64           `json:"count"`
-	Users      []models.User   `json:"users"`
-	Pagination PaginationInfo  `json:"pagination"`
+	Count      int64          `json:"count"`
+	Users      []models.User  `json:"users"`
+	Pagination PaginationInfo `json:"pagination"`
 }
 
 // parseAndValidateReportsQueryParams parses and validates query parameters for GetReports

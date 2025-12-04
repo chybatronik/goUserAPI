@@ -93,10 +93,10 @@ func TestCreateUsersTable(t *testing.T) {
 
 	// Verify columns exist with correct types
 	columns := map[string]string{
-		"id":            "uuid",
-		"first_name":    "character varying",
-		"last_name":     "character varying",
-		"age":           "integer",
+		"id":             "uuid",
+		"first_name":     "character varying",
+		"last_name":      "character varying",
+		"age":            "integer",
 		"recording_date": "bigint",
 	}
 

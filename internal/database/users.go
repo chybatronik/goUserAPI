@@ -6,9 +6,9 @@ import (
 	"time"
 
 	"github.com/chybatronik/goUserAPI/internal/logging"
-	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/chybatronik/goUserAPI/internal/models"
 	"github.com/chybatronik/goUserAPI/internal/types"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 // Performance constants for NFR-P1 compliance (AC #5)
@@ -301,9 +301,9 @@ func buildOrderClause(sortBy, sortOrder string) string {
 	// Map whitelisted values to exact SQL fragments
 	validSortColumns := map[string]string{
 		"recording_date": "recording_date",
-		"age":           "age",
-		"first_name":    "first_name",
-		"last_name":     "last_name",
+		"age":            "age",
+		"first_name":     "first_name",
+		"last_name":      "last_name",
 	}
 
 	validSortOrders := map[string]string{

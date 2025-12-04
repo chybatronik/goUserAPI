@@ -10,25 +10,25 @@ import (
 // User-specific error codes (AC: #4)
 const (
 	// Validation errors (400 Bad Request)
-	ErrCodeValidationFailed    = "USER_VALIDATION_FAILED"
-	ErrCodeFirstNameEmpty      = "USER_FIRST_NAME_EMPTY"
-	ErrCodeFirstNameTooLong    = "USER_FIRST_NAME_TOO_LONG"
-	ErrCodeLastNameEmpty       = "USER_LAST_NAME_EMPTY"
-	ErrCodeLastNameTooLong     = "USER_LAST_NAME_TOO_LONG"
-	ErrCodeAgeInvalid          = "USER_AGE_INVALID"
-	ErrCodeAgeTooYoung         = "USER_AGE_TOO_YOUNG"
-	ErrCodeAgeTooOld           = "USER_AGE_TOO_OLD"
-	ErrCodeUUIDInvalid         = "USER_UUID_INVALID"
+	ErrCodeValidationFailed = "USER_VALIDATION_FAILED"
+	ErrCodeFirstNameEmpty   = "USER_FIRST_NAME_EMPTY"
+	ErrCodeFirstNameTooLong = "USER_FIRST_NAME_TOO_LONG"
+	ErrCodeLastNameEmpty    = "USER_LAST_NAME_EMPTY"
+	ErrCodeLastNameTooLong  = "USER_LAST_NAME_TOO_LONG"
+	ErrCodeAgeInvalid       = "USER_AGE_INVALID"
+	ErrCodeAgeTooYoung      = "USER_AGE_TOO_YOUNG"
+	ErrCodeAgeTooOld        = "USER_AGE_TOO_OLD"
+	ErrCodeUUIDInvalid      = "USER_UUID_INVALID"
 
 	// Database constraint violations (409 Conflict)
-	ErrCodeUserAlreadyExists   = "USER_ALREADY_EXISTS"
-	ErrCodeUserNotFound        = "USER_NOT_FOUND"
-	ErrCodeDuplicateEmail      = "USER_DUPLICATE_EMAIL" // Future use for email field
+	ErrCodeUserAlreadyExists = "USER_ALREADY_EXISTS"
+	ErrCodeUserNotFound      = "USER_NOT_FOUND"
+	ErrCodeDuplicateEmail    = "USER_DUPLICATE_EMAIL" // Future use for email field
 
 	// Database errors (500 Internal Server Error)
-	ErrCodeDatabaseError       = "USER_DATABASE_ERROR"
-	ErrCodeConnectionFailed    = "USER_CONNECTION_FAILED"
-	ErrCodeTransactionFailed   = "USER_TRANSACTION_FAILED"
+	ErrCodeDatabaseError     = "USER_DATABASE_ERROR"
+	ErrCodeConnectionFailed  = "USER_CONNECTION_FAILED"
+	ErrCodeTransactionFailed = "USER_TRANSACTION_FAILED"
 )
 
 // UserError represents a user-specific error with HTTP status mapping

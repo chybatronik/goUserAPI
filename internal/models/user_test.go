@@ -121,10 +121,10 @@ func TestUserStructValidationTags(t *testing.T) {
 	// Test that User struct has proper validation tags
 	user := User{
 		ID:            "550e8400-e29b-41d4-a716-446655440000", // Valid UUID
-		FirstName:     "John",                                // Valid: max 100 chars
-		LastName:      "Doe",                                 // Valid: max 100 chars
-		Age:           30,                                    // Valid: 1-120
-		RecordingDate: 1638360000,                           // Valid timestamp
+		FirstName:     "John",                                 // Valid: max 100 chars
+		LastName:      "Doe",                                  // Valid: max 100 chars
+		Age:           30,                                     // Valid: 1-120
+		RecordingDate: 1638360000,                             // Valid timestamp
 	}
 
 	// Verify field values for validation constraints
@@ -187,12 +187,12 @@ func TestUserStructJSONTags(t *testing.T) {
 func contains(s, substr string) bool {
 	return len(s) >= len(substr) && (s == substr || len(substr) == 0 ||
 		(len(s) > len(substr) && (s[:len(substr)] == substr || s[len(s)-len(substr):] == substr ||
-		func() bool {
-			for i := 0; i <= len(s)-len(substr); i++ {
-				if s[i:i+len(substr)] == substr {
-					return true
+			func() bool {
+				for i := 0; i <= len(s)-len(substr); i++ {
+					if s[i:i+len(substr)] == substr {
+						return true
+					}
 				}
-			}
-			return false
-		}())))
+				return false
+			}())))
 }

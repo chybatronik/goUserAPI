@@ -151,8 +151,8 @@ func TestSecurityHeaders(t *testing.T) {
 	expectedHeaders := map[string]string{
 		"Content-Type":           "application/json",
 		"X-Content-Type-Options": "nosniff",
-		"X-Frame-Options":         "DENY",
-		"Referrer-Policy":         "strict-origin-when-cross-origin",
+		"X-Frame-Options":        "DENY",
+		"Referrer-Policy":        "strict-origin-when-cross-origin",
 	}
 
 	for header, expectedValue := range expectedHeaders {
@@ -219,25 +219,25 @@ func TestErrorSanitization(t *testing.T) {
 func TestDatabaseErrorMappingSecurity(t *testing.T) {
 	testCases := []struct {
 		name           string
-		errorInput    error
+		errorInput     error
 		expectedCode   string
 		expectedStatus int
 	}{
 		{
 			name:           "database connection error",
-			errorInput:    &databaseError{Message: "Failed to connect to postgresql://user:password@localhost/db"},
+			errorInput:     &databaseError{Message: "Failed to connect to postgresql://user:password@localhost/db"},
 			expectedCode:   "SERVICE_UNAVAILABLE",
 			expectedStatus: 503,
 		},
 		{
 			name:           "table access error",
-			errorInput:    &databaseError{Message: "Permission denied for table users"},
+			errorInput:     &databaseError{Message: "Permission denied for table users"},
 			expectedCode:   "DATABASE_ERROR",
 			expectedStatus: 500,
 		},
 		{
 			name:           "sql injection attempt",
-			errorInput:    &databaseError{Message: "SQL injection detected in query: DROP TABLE users"},
+			errorInput:     &databaseError{Message: "SQL injection detected in query: DROP TABLE users"},
 			expectedCode:   "DATABASE_ERROR",
 			expectedStatus: 500,
 		},

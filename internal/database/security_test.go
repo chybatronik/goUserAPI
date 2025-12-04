@@ -121,10 +121,10 @@ func TestGetUsersValidParameters(t *testing.T) {
 func TestBuildOrderClauseSecurity(t *testing.T) {
 	// Test that buildOrderClause produces safe SQL even with malicious inputs
 	testCases := []struct {
-		name       string
-		sortBy     string
-		sortOrder  string
-		expected   string
+		name      string
+		sortBy    string
+		sortOrder string
+		expected  string
 	}{
 		// Valid inputs
 		{

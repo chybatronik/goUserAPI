@@ -14,10 +14,10 @@ import (
 
 func main() {
 	var (
-		action      = flag.String("action", "up", "Migration action: up, down, status, rollback-last")
-		target      = flag.String("target", "", "Target version for down migration")
+		action        = flag.String("action", "up", "Migration action: up, down, status, rollback-last")
+		target        = flag.String("target", "", "Target version for down migration")
 		migrationsDir = flag.String("dir", "./migrations", "Migrations directory path")
-		help        = flag.Bool("help", false, "Show help information")
+		help          = flag.Bool("help", false, "Show help information")
 	)
 	flag.Parse()
 

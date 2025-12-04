@@ -13,14 +13,14 @@ import (
 
 // FileLogger provides file-based logging functionality
 type FileLogger struct {
-	infoLogger    *log.Logger
-	errorLogger   *log.Logger
-	debugLogger   *log.Logger
-	logFile       *os.File
-	errorLogFile  *os.File
-	debugLogFile  *os.File
-	config        *config.LoggingConfig
-	multiWriter   io.Writer
+	infoLogger   *log.Logger
+	errorLogger  *log.Logger
+	debugLogger  *log.Logger
+	logFile      *os.File
+	errorLogFile *os.File
+	debugLogFile *os.File
+	config       *config.LoggingConfig
+	multiWriter  io.Writer
 }
 
 // NewFileLogger creates a new file logger instance

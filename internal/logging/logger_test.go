@@ -201,4 +201,3 @@ func TestLoggerHealthCheck(t *testing.T) {
 		t.Errorf("Expected response time 25, got %v", logEntry["response_time_ms"])
 	}
 }
-

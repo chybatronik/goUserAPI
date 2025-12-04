@@ -3,11 +3,11 @@ package config
 
 // Config represents the application configuration
 type Config struct {
-	Server        ServerConfig
-	Database      DatabaseConfig
-	Logging       LoggingConfig
-	HealthCheck   HealthCheckConfig
-	Application   ApplicationConfig
+	Server      ServerConfig
+	Database    DatabaseConfig
+	Logging     LoggingConfig
+	HealthCheck HealthCheckConfig
+	Application ApplicationConfig
 }
 
 // ServerConfig holds HTTP server configuration
